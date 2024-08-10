@@ -17,36 +17,43 @@ exports.createPet = async (req, res) => {
   }
 };
 
-exports.excluirPet = async function (req, res) {
-  //DELETE
+exports.deletePet = async function (req, res) {
   const id = req.params.id;
   const tutor = await Tutor.findOne({ where: { id } });
   const pet = await Pet.findOne({ where: { id } });
 
   if (!tutor) {
-    if (!pet) {
       res.status(400).json({ message: "Tutor não encontrado." });
-    }
   } else {
-    const tutor = await Tutor.destroy({ where: { id } });
-    res.status(204).json({ ok: true });
+    const pet = await Pet.destroy({ where: { id } });
+    res.status(204).json({ message: 'Pet excluido.' });
   }
 };
 
-exports.atualizarTutor = async function (req, res) {
-  //PUT
+exports.updatePet = async function (req, res) {
   const id = req.params.id;
-  const { name, phone, email, date_of_birth } = req.body;
-
   const tutor = await Tutor.findOne({ where: { id } });
+  const pet = await Pet.findOne({ where: { id } });
+  const { name, species, carry, weight, date_of_birth} = req.body;
+
   if (!tutor) {
-    res.status(400).json({ message: "Nenhum tutor encontrrado" });
+    res.status(400).json({ message: "Nenhum tutor encontrado" });
   } else {
-    await Tutor.update(
-      { name, phone, email, date_of_birth },
+    await Pet.update(
+      { name, species, carry, weight, date_of_birth },
       { where: { id } }
     );
-    const updatedTutor = await Tutor.findOne({ where: { id } });
-    return res.status(200).json({ tutor: updatedTutor });
+    const updatedPet = await Pet.findOne({ where: { id } });
+    return res.status(200).json({ tutor: updatedPet, message: "Pet Atualizado."});
   }
 };
+
+
+exports.listapet = async function(req, res) {
+  try {
+   const listapet = await Pet.findAll();
+   res.status(201).json(listapet);
+  } catch (error) {
+      res.status(400).json({ message: 'Erro ao listar tutores.' });
+  }
+}

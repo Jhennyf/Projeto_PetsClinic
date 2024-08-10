@@ -1,4 +1,4 @@
-const Tutor  = require('../models/TutorModel')
+const Tutor = require('../models/TutorModel')
 
 exports.createTutor = async function (req, res)  {
   try {
@@ -19,7 +19,6 @@ exports.listaTutors = async function(req, res) {
 }
 
 exports.excluirTutor = async function(req, res) {
-    //DELETE
     const id = req.params.id;
     const tutor = await Tutor.findOne({where: {id}})
     
@@ -32,7 +31,6 @@ exports.excluirTutor = async function(req, res) {
 }
 
 exports.atualizarTutor = async function(req, res){
-    //PUT
     const id = req.params.id;
     const {name, phone, email, date_of_birth} = req.body; 
   
