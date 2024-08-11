@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize')
 const db = require('../db/connection');
+const Tutor = require('../models/TutorModel')
 
 const Pet = db.define('Pet', {
     name:{
@@ -7,11 +8,9 @@ const Pet = db.define('Pet', {
     },
     species:{
         type: DataTypes.STRING,
-        require: true
     },
     carry:{
         type: DataTypes.STRING,
-        require: true
     },
     weight:{
         type: DataTypes.STRING,
@@ -21,4 +20,7 @@ const Pet = db.define('Pet', {
     }
 })
 
-module.exports = Pet 
+Tutor.hasMany(Pet);
+Pet.belongsTo(Tutor);
+
+module.exports = Pet
