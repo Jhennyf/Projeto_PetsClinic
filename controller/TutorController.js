@@ -1,4 +1,5 @@
 const Tutor = require('../models/TutorModel')
+const Pet = require('../models/PetModel');
 
 exports.createTutor = async function (req, res)  {
   try {
@@ -9,11 +10,18 @@ exports.createTutor = async function (req, res)  {
   }
 }
 
-///tem que listar tutor e pet
+
 exports.listTutors = async function(req, res) {
     try {
-     const listaTutors = await Tutor.findAll();
-     res.status(201).json(listaTutors);
+      const listaTutors = await Tutor.findAll({
+        include: [{
+            model: Pet,
+            attributes: ['id', 'name', 'species', 'carry', 'weight', 'date_of_birth'] 
+        }],
+        attributes: ['id', 'name', 'phone', 'email', 'date_of_birth', 'zip_code']
+    });
+
+    res.status(200).json(listaTutors);
     } catch (error) {
         res.status(400).json({ message: 'Error listing tutors.' });
     }
