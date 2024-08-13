@@ -1,7 +1,7 @@
 
 # 🐮 Pets Clinic 
 
-O projeto PetsClinic é parte do 1º Desafio | NODE.JS + AWS_JUL24.
+O projeto PetsClinic é parte do 1º Desafio | NODE.JS + AWS_JUL24. 
 
 # 🏥 Sobre o projeto
 Esta API REST foi desenvolvida para o gerenciamento de Tutores e Pets. O projeto conta com diversas funcionalidades como criação, atualização, listagem e exclusão de Tutores e Pets. 
