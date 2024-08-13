@@ -1,0 +1,221 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Pets Clinic",
+    "description": "1º Desafio | NODE.JS + AWS_JUL24"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/tutor": {
+      "post": {
+        "summary": "Create a new tutor",
+        "tags": ["Tutors"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Details Tutor",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tutor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create Tutor"
+          }
+        }
+      }
+    },
+    "/tutors": {
+      "get": {
+        "summary": "List Tutors and Pets",
+        "tags": ["Tutors"],
+        "responses": {
+          "200": {
+            "description": "List Tutors and Pets",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tutor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tutor/{id}": {
+      "put": {
+        "summary": "Update an existing tutor",
+        "tags": ["Tutors"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update tutor",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tutor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tutor updated successfully"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Tutor",
+        "tags": ["Tutors"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete Tutor"
+          }
+        }
+      }
+    },
+    "/pet/{tutorId}": {
+      "post": {
+        "summary": "Create new pet",
+        "tags": ["Pets"],
+        "parameters": [
+          {
+            "name": "tutorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New pet",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pet successfully created"
+          }
+        }
+      }
+    },
+    "/pet/{petId}/tutor/{tutorId}": {
+      "put": {
+        "summary": "Update pet",
+        "tags": ["Pets"],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tutorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated pet data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update Pet"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Pet",
+        "tags": ["Pets"],
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tutorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pet deleted!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Tutor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string"
+        },
+        "zip_code": {
+          "type": "string"
+        }
+      }
+    },
+    "Pet": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "weight":{
+          "type": "int"
+        },
+        "date_of_birth":{
+          "type": "string"
+        }
+      }
+    }
+  }
+}

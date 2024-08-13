@@ -2,13 +2,15 @@ const express = require('express');
 const app = express();
 const db = require('./db/connection');
 const bodyParser = require('body-parser');
-const TutorModel = require('./models/TutorModel');
-const PetModel = require('./models/PetModel');
+const swaggerUi = require ('swagger-ui-express');
+const swagger = require ('./swagger.json');
+
 
 const PORT = 3000;
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swagger));
 
 db
 .sync()
