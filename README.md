@@ -1,25 +1,13 @@
 
-# Pets Clinic 
+# 🐮 Pets Clinic 
 
 O projeto PetsClinic é parte do 1º Desafio | NODE.JS + AWS_JUL24.
 
-## Sobre o projeto
+# 🏥 Sobre o projeto
 Esta API REST foi desenvolvida para o gerenciamento de Tutores e Pets. O projeto conta com diversas funcionalidades como criação, atualização, listagem e exclusão de Tutores e Pets. 
 
 ## Tecnologias Utilizadas 
-  
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
-
-![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
-
-![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
-
+  [![My Skills](https://skillicons.dev/icons?i=js,nodejs,mysql,express,sequelize,git,github)](https://skillicons.dev)
 
 ## Instrução de uso
 Como rodar o projeto na aplicação:
@@ -30,7 +18,7 @@ npm rum dev
 
 
 ### Instrução de Instalação
-** Como instalar e configurar o projeto: **
+**Como instalar e configurar o projeto:**
     
 1. Clone o Repositório
 
@@ -38,8 +26,14 @@ npm rum dev
 https://github.com/Jhennyf/Projeto_PetsClinic.git
 cd Projeto_PetsClinic 
 ```
+2. Configure o banco de Dados
+3. Compile e Execute a aplicação
+4. Acesse a API no swagger
+```bash
+http://localhost:3000/docs
+```
 
-## EndPoints
+# 📍 EndPoints
 ### EndPoints Tutor
 
 ```bash
@@ -57,7 +51,7 @@ cd Projeto_PetsClinic
 - DELETE /pet/:petId/tutor/:tutorId - Apaga um Pet.
 ```
 
-## Estrutura de Pastas do Projeto
+# 📁 Estrutura de Pastas do Projeto
 
 ```plaintext
 Projeto_PetsClinic
