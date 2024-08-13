@@ -27,8 +27,16 @@ https://github.com/Jhennyf/Projeto_PetsClinic.git
 cd Projeto_PetsClinic 
 ```
 2. Configure o banco de Dados
-3. Compile e Execute a aplicação
-4. Acesse a API no swagger
+```bash
+create database clinic
+use clinic
+```
+4. Compile e Execute a aplicação
+```bash
+npm i
+npm run dev
+```
+5. Acesse a API no swagger
 ```bash
 http://localhost:3000/docs
 ```
@@ -36,7 +44,7 @@ http://localhost:3000/docs
 # 📍 EndPoints
 ### EndPoints Tutor
 
-```bash
+```javascript
 - GET    /tutors - Listar todos os tutores.
 - POST   /tutor - Cria um tutor e lista somente ele.
 - PUT    /tutor/:id - Altera dados de um Tutor e salva.
